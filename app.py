@@ -3,4 +3,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Please subscribe, like, and comment on this video, TY!!!'
+    return 'Yeyyyy, i have successfully build a fully automated CICD pipeline!!!'

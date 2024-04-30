@@ -1,12 +1,15 @@
-# syntax=docker/dockerfile:1
+# Base image 
+FROM node:19-alpine
 
-FROM python:3.8-slim-buster
+#Copy package.json and server.js into container
+COPY package.json /app/
+COPY server.js /app/
 
+#change into app directory to execute
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+# Install dependencies and create node modules
+RUN npm install
 
-COPY . .
-
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+#Run command to start app in container
+CMD ["node", "server.js"]

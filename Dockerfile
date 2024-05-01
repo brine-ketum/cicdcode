@@ -11,5 +11,8 @@ WORKDIR /app
 # Install dependencies and create node modules
 RUN npm install
 
+#Expose port
+EXPOSE 3000
+
 #Run command to start app in container
 CMD ["node", "server.js"]
